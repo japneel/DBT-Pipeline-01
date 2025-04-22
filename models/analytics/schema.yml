@@ -1,0 +1,12 @@
+
+version: 2
+
+models:
+  - name: approval_ratio_by_employee
+    description: Ratio of approved to not approved/pending reimbursements
+  
+  - name: monthly_reimbursement_summary
+    description: Monthly summary of reimbursements.
+
+  - name: total_claims_by_department
+    description: Number of claims per department.

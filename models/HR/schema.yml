@@ -1,0 +1,12 @@
+
+version: 2
+
+models:
+  - name: dep_emp_count
+    description: >
+      Shows the number of employees per department.
+    columns:
+      - name: department_name
+        description: Name of the department of the employee.
+      - name: employee_count
+        description: Count of employees for that department.

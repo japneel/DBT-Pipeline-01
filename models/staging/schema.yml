@@ -1,0 +1,26 @@
+# schema definition for the staging folder 
+
+version: 2
+
+sources:
+  - name: company_reimbursements    # from your profiles.yml
+    schema: public
+    tables:
+      - name: employees
+      - name: departments
+      - name: reimbursements
+      - name: reimbursement_types
+
+models:
+  - name: stg_employees
+    description: >
+      Shows Employees description within the Organisation.
+    columns:
+      - name: employee_id
+        description: Primary key for all employees.
+      - name: full_name
+        description: Full name of the Employee.
+      - name: email
+        description: Employee email id.
+      - name: department_id
+        description: Employee department id.

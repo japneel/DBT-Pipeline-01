@@ -1,0 +1,15 @@
+version: 2
+
+models:
+  - name: approved_reimbursements
+    description: >
+      Shows only approved reimbursements with employee and department info.
+    columns:
+      - name: reimbursement_id
+        description: Primary key of the reimbursement.
+      - name: employee_name
+        description: Name of the employee who submitted the claim.
+      - name: department_name
+        description: Employee's department.
+
+  
