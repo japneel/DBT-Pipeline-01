@@ -82,7 +82,7 @@ jobs:
           CREATE TABLE IF NOT EXISTS reimbursements (
             reimbursement_id SERIAL PRIMARY KEY,
             employee_id INT REFERENCES employees(employee_id),
-            type_id INT REFERENCES reimbursement_types(type_id)
+            type_id INT REFERENCES reimbursement_types(type_id),
             claim_amount NUMERIC,
             claim_date TIMESTAMP,
             status TEXT,
