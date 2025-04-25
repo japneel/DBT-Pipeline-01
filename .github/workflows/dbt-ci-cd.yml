@@ -79,6 +79,12 @@ jobs:
             department_id INT REFERENCES departments(department_id)
           );
 
+          CREATE TABLE IF NOT EXISTS reimbursement_types (
+            type_id SERIAL PRIMARY KEY,
+            type_name TEXT NOT NULL,
+            limit_amount INT
+          );
+
           CREATE TABLE IF NOT EXISTS reimbursements (
             reimbursement_id SERIAL PRIMARY KEY,
             employee_id INT REFERENCES employees(employee_id),
@@ -89,14 +95,18 @@ jobs:
             notes TEXT
           );
 
-          CREATE TABLE IF NOT EXISTS reimbursement_types (
-            type_id SERIAL PRIMARY KEY,
-            type_name TEXT NOT NULL,
-            limit_amount INT
-          );
+          INSERT INTO reimbursement_types (type_name, limit_amount) VALUES 
+            ('Travel', 1000),
+            ('Meals', 500);
 
-          INSERT INTO departments (department_id, department_name) VALUES (1, 'Engineering'), (2, 'Finance');
-          INSERT INTO employees (employee_id, full_name, email, department_id) VALUES (1, 'Alice Stewart', 'alice.stewart@xxxxmail.com', 1), (2, 'Bob Huges', 'bob.huges@xxxxmail.com', 2);
+          INSERT INTO departments (department_id, department_name) VALUES 
+            (1, 'Engineering'), 
+            (2, 'Finance');
+
+          INSERT INTO employees (employee_id, full_name, email, department_id) VALUES 
+            (1, 'Alice Stewart', 'alice.stewart@xxxxmail.com', 1), 
+            (2, 'Bob Huges', 'bob.huges@xxxxmail.com', 2);
+
           INSERT INTO reimbursements (reimbursement_id, employee_id, type_id, claim_amount, claim_date, status, notes) VALUES
             (1, 1, 1, 500.00, NOW(), 'Approved', 'Note 1'),
             (2, 2, 2, 750.00, NOW(), 'Declined', 'Note 2');
